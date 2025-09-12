@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영역 관련 태그</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        span {
+            /*width: 200px;    인라인 요소에서는 대부분 가로, 세로길이 지정 불가 
+            height: 200px;*/
+            border: 1px solid black;
+        }
+        .red{
+            background-color: red;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        * 블럭 요소: 한 줄 단위로 영역차지
+                    줄바꿈이 적용되어 이미 존재하는 태그의 다음줄에 영역 잡힘
+                    (p, div, pre, ...)
+        * 인라인 요소: content(내용)영역에 해당하는 부분만 영역 차지
+                    줄바꿈이 적용되지 않아 옆으로 영역이 잡힘
+                    (b, mark, s, img, span, ...)
+    -->
+    <h1>영역 관련 태그</h1>
+
+    <h2>div 태그와 span 태그의 차이점 1: 줄바꿈 적용</h2>
+    <h3>div태그</h3>
+    <p>div태그는 블럭요소로 한 줄 단위로 영역 차지</p>
+    <div class="red">첫번째 영역</div>
+    <div class="orange">두번째 영역</div>
+    <div class="yellow">세번째 영역</div>
+    <br><br>
+
+    <h3>span 태그</h3>
+    <p>
+        span태그는 인라인요소로 content 영역만 자리 차지
+    </p>
+    <span class="red">첫번째 영역</span>
+    <span class="orange">두번째 영역</span>
+    <span class="yellow">세번째 영역</span>
+    <br><br><hr>
+    <h2>div 태그와 span 태그의 차이점 2: 영역 지정 방식</h2>
+
+    <h3>div태그: 사각형 박스로 영역을 지정</h3>
+    <div>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio ut dolorum placeat nisi, maxime aliquam doloremque! Obcaecati nam quaerat culpa dolorum dicta dignissimos et provident eum ducimus. Ad, esse sint?
+    </div><br><br>
+
+    <h3>span태그: 문장 단위 영역을 지정</h3>
+    <span class="orange">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio ut dolorum placeat nisi, maxime aliquam doloremque! Obcaecati nam quaerat culpa dolorum dicta dignissimos et provident eum ducimus. Ad, esse sint?
+    </span><br><br>
+
+    <h1>iframe</h1>
+    <p>웹 문서 안에 다른 웹 페이지를 추가하는 태그(인라인 요소)</p>
+
+    <iframe src="07.이미지and멀티미디어태그.html" width="800" height="600"></iframe><br><br><br><br><br>
+    <iframe width="481" height="856" src="https://www.youtube.com/embed/rK3q3ksLFiA" title="현 시점 애드립의 정점 김원훈" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

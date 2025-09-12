@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="test.jsp">
+        <fieldset>
+            <legend>필수 항목</legend>
+            ID: <input type="text"><br>
+            PW: <input type="text"><br>
+            NAME: <input type="text">
+        </fieldset>
+
+        <fieldset>
+            <legend>선택 항목</legend>
+            전화번호: <input type="text"><br>
+            주소: <input type="text"><br>
+            생년월일: <input type="date" name="dateInput">
+            <br>
+            성별: <input type="radio" name="gender" value="M" id="gm">
+                <label for="gm">남</label> &emsp;
+                <input type="radio" name="gender" value="F" id="gf">
+                <label for="gf">여</label><br>
+            과목: 
+            <select>
+                <optgroup label="프로그램">
+                    <option value="Java">Java</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="android">android</option>
+                </optgroup>
+                <optgroup label="기타">
+                    <option value="github">github</option>
+                    <option value="UML">UML</option>
+                    <option value="AWS">AWS</option>
+                    <option value="FIGMA">FIGMA</option>
+                </optgroup>
+
+            </select><br>
+            자기소개: <input type="text" style="width: 200px; height:200px">
+        </fieldset>
+        <button>서버로 전송</button>
+    </form>
+</body>
+</html>
