@@ -1,0 +1,29 @@
+header {
+    background-color: rgb(98, 189, 46);
+    text-align: left;
+    height: 80px;
+}
+
+aside {
+    float: right;
+    background-color: rgb(189, 44, 181);
+    color:green;
+    width: 30%;
+    height: 400px;
+    text-align: center;
+}
+
+section {
+    float: left;
+    background-color: red;
+    color: yellow;
+    width: 70%;
+    height: 400px;
+}
+
+footer {
+    padding: 1px;
+    background-color: skyblue;
+    text-align: right;
+    clear: both;
+}

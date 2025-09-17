@@ -1,0 +1,32 @@
+header {text-align: center;}
+section {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+}
+.menu-item {
+    width: 300px;
+    height: 200px;
+    margin:5px;
+    background: no-repeat center;
+    background-size: cover;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    line-height: 320px;
+    text-shadow: 1px 1px black;
+}
+
+#menu1 {background-image: url(../img/호박죽.png);}
+#menu2 {background-image: url(../img/미역국.png);}
+#menu3 {background-image: url(../img/함박.png);}
+#menu4 {background-image: url(../img/마라탕.png);}
+#menu5 {background-image: url(../img/베라.png);}
+#menu6 {background-image: url(../img/호박죽.png);}
+#menu7 {background-image: url(../img/미역국.png);}
+#menu8 {background-image: url(../img/함박.png);}
+#menu9 {background-image: url(../img/마라탕.png);}
+#menu10 {background-image: url(../img/베라.png);}

@@ -1,0 +1,20 @@
+a {
+    text-decoration: none;
+    color: black;
+    margin: 0 auto;
+}
+
+.navi {
+    background-color: #000080;
+}
+
+.navi a:link, .navi a:visited {color:white;}
+.navi a:hover, .navi a:focus {color: yellow;}
+.navi a:active {color: red;}
+
+footer{
+    background-color: #000080;
+    color: white;
+    font-size:0.8em;
+    clear: both;
+}
