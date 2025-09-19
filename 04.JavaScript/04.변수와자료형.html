@@ -83,8 +83,139 @@
 
             // console.log(hobby); 
             // console.log(gender); 변수가 선언된 블럭 밖에서 사용하려 했기에 오류남
-
         }
     </script>
+
+    <h3>* 변수 선언 위치에 따른 전역변수 / 지역변수 </h3>
+
+    <script>
+        // window.onload 이 문서가 다 로딩된 후 바로 실행시키고자 할 때
+        // window.onload = function (){
+        //     console.log("문서로딩 완료")
+        // }
+
+        // 특정 함수 영역 밖에서 선언된 변수는 전역변수로 잡힘
+        var declearVar = "var 전역변수";
+        let declearLet = "let 전역변수";
+        const declearConst = "const 전역변수";
+        declearNone = "그냥 전역변수"; // 변수명 앞에 아무런 키워드가 없으면 전역변수임
+
+        window.onload = function() {
+            // console.log(declearVar);
+            // console.log(declearLet);
+            // console.log(declearConst);
+            // console.log(declearNone);
+
+            // 전역변수와 동일한 이름으로 지역변수 선언
+            var declearVar = "var 지역변수";
+            let declearLet = "let 지역변수";
+            const declearConst = "const 지역변수";
+
+            // 지역변수 우선순위가 더 높아서 위에 있는것들은 오류
+            console.log(declearVar);
+            console.log(declearLet);
+            console.log(declearConst);
+            console.log(declearNone);
+            console.log("--------------------------------")
+
+            // 전역변수에 접근하고 싶다면 window. 또는 this. 으로 접근(var만 가능)
+            console.log(window.declearVar);
+            console.log(this.declearVar);
+
+            // let, const의 경우 undefined로 뜸
+            console.log(this.declearLet);
+
+            declearInner = "얘는 뭘까";
+            console.log(declearInner);
+            console.log(this.declearInner);
+
+            // 다른 함수 호출
+            test();
+
+            function test() {
+                console.log("--------------------------------");
+                console.log(declearInner);
+            }
+        }
+    </script>
+    <hr>
+    <h2>자료형</h2>
+    <p>
+        Dynamic Typing: 변수 선언 시 자료형을 별도로 지정하지 않음(그렇다고 자료형이 없는건 아님) <br>
+        => 대입되는 값에의해 타입이 결정됨
+    </p>
+
+    <h2>자바스크립트의 자료형</h2>
+    <ul>
+        <li>string(문자열)</li>
+        <li>number(숫자)</li>
+        <li>boolean(논리)</li>
+        <li>object(객체)</li>
+        <li>function(함수)</li>
+        <li>undefined(초기화가 안된 변수)</li>
+    </ul>
+
+    <button onclick="typeTest();">자료형 테스트</button>
+    <div id="area1"></div>
+
+    <script>
+        function typeTest(){
+            const name="남궁용진";
+            const age=27;
+            const flag=true;
+            const hobby= ['영화','음악감상','게임']; // 배열 객체
+            const divEle=document.querySelector('#area1'); // 요소 객체
+            const user= { // 객체 생성
+                name: '이한나',
+                age: 45,
+                id: 'user1'
+            };
+            const fn =function() {
+                alert('함수자료형');
+            }
+            let noVal;
+
+            // 자료형 확인: typeof.변수명
+            console.log(typeof name, name);
+            console.log(typeof age, age);
+            console.log(typeof flag, flag);
+
+            console.log(typeof hobby, hobby);
+            console.log(typeof divEle, divEle);
+            console.log(typeof user, user);
+
+            console.log(typeof fn, fn);
+            console.log(typeof noVal, noVal);
+
+            // div 화면에 출력
+            divEle.innerHTML = typeof name+ ", "+ name + "<br>";
+
+
+            // 백틱 (ES6 버전부터 사용가능) 
+            let name1 = `이름: 홍길동`;
+
+            let str = 'Hello ' + name1;
+            let str2 = `Hello ${name1}`;
+
+            console.log(name1);
+            console.log(str);
+            console.log(str2);
+
+            let ta = `<table>
+                        <tr>
+                            <td>${name1}</td>
+                        </tr>
+                        <tr>
+                            <td>${str}</td>
+                        </tr> </table>`;
+            
+            divEle.innerHTML = `${typeof name}, ${name}<br>
+            ${typeof age}, ${age}<br>
+            ${typeof flag}, ${flag}<br>
+            ${typeof hobby}, ${hobby}<br>`;
+        }
+    </script>
+
+    
 </body>
 </html>

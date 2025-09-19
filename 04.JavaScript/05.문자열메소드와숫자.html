@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 관련 메소드 및 숫자</title>
+    <style>
+        .area {
+            width: 300px;
+            border: 1px solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>문자열 관련 메소드 및 숫자</h1>
+
+    <h3>* 문자열 관련 메소드</h3>
+    <button onclick="stringTest();">문자열처리 메소드</button>
+    <div class="area" id="area1"></div>
+
+    <script>
+        function stringTest() {
+            const area1 = document.getElementById("area1");
+
+            const str1 = 'Hello World';
+            area1.innerHTML += `str1: ${str1}<br>`;
+            area1.innerHTML += `toUpperCase(): ${str1.toUpperCase()}<br>`;
+            area1.innerHTML += `toLowerCase(): ${str1.toLowerCase()}<br>`;
+
+            area1.innerHTML += `문자열의 길이: ${str1.length}<br>`;
+            area1.innerHTML += '=================================<br>';
+            
+            // charAt(index): index에 해당하는 문자 반환
+            for(let i=0;i<str1.length;i++){
+                area1.innerHTML+= `${i}번 index: ${str1[i]}<br>`;
+                // area1.innerHTML+= `${i}번 index: ${str1.charAt(i)}<br>`;
+            }
+            area1.innerHTML += '=================================<br>';
+
+            area1.innerHTML += `앞에서부터 첫 'l'의 위치: ${str1.indexOf('l')}<br>`;
+            area1.innerHTML += `뒤에서부터 첫 'l'의 위치: ${str1.lastIndexOf('l')}<br>`;
+            area1.innerHTML += `앞에서부터 첫 'a'의 위치: ${str1.indexOf('a')}<br>`;
+            area1.innerHTML += '=================================<br>';
+            
+            area1.innerHTML += `substring(start index): ${str1.substring(6)}<br>`;
+            area1.innerHTML += `substring(start index, end index): ${str1.substring(0,2)}<br>`;
+
+            const str2 = '사과, 바나나, 복숭아, 키위';
+            const fruits = str2.split(',');
+            area1.innerHTML += `${fruits}<br>`;
+            area1.innerHTML += `fruits 자료형: ${typeof fruits}<br>`;
+            area1.innerHTML += `str2 자료형: ${typeof str2}<br>`;
+
+            // for(let i=0;i<fruits.length;i++){
+            //     area1.innerHTML += `${fruits[i]}`;
+            // }
+        }
+    </script>
+    <br>
+    <h3>* 문자열 관련 html 메소드</h3>
+    <button onclick="stringHtmlTest();">문자열 html 메소드</button>
+    <div class="area" id="area2"></div>
+
+    <script>
+        function stringHtmlTest() {
+            const area2 = document.getElementById('area2');
+            const str = `javaScript`;
+
+            area2.innerHTML += `str: ${str}<br>`;
+            area2.innerHTML += `bold(): ${str.bold()}<br>`;
+            area2.innerHTML += `italics(): ${str.italics()}<br>`;
+
+            area2.innerHTML += `bold & italics(): ${str.bold().italics()}<br>`;
+
+            area2.innerHTML += `small(): ${str.small()}<br>`;
+            area2.innerHTML += `sub(): ${str.sub()}<br>`;
+            area2.innerHTML += `sup(): ${str.sup()}<br>`;
+            area2.innerHTML += `link(): ${str.link('https://music.youtube.com')}<br>`;
+        }
+    </script>
+    <br>
+    <h3>* 숫자(수학) 관련 메소드</h3>
+    <button onclick="mathTest();">수학관련 메소드</button>
+    <div class="area" id="area3"></div>
+
+    <script>
+        function mathTest() {
+            const area3 = document.getElementById('area3');
+
+            // 자바스크립트에서 Math 내장 객체 제공
+            area3.innerHTML += `절대값: ${Math.abs(-123)}<br>`;
+            area3.innerHTML += `랜덤값: ${Math.random()}<br>`; 
+            area3.innerHTML += `반올림: ${Math.round(123.789)}<br>`; // 위치 조정 불가
+            area3.innerHTML += `버림: ${Math.floor(123.432)}<br>`;
+            area3.innerHTML += `올림: ${Math.ceil(123.432)}<br>`;
+        }
+    </script>
+
+    <br>
+    <h3>* 문자열과 숫자간의 산술연산 / 형변환</h3>
+    <button onclick="arithmetic();">산술연산</button>
+    <div class="area" id="area4"></div>
+
+    <script>
+        function arithmetic() {
+            const area4 = document.getElementById('area4');
+
+            // 덧셈은 문자열이 있으면 문자열로 인식
+            const test1 = 7+7;
+            const test2 = 7+'7';
+            const test3 = '7'+7;
+            const test4 = 7+7+'7';
+            const test5 = '7'+7+7;
+            const test6 = '7'+(7+7);
+
+            area4.innerHTML += `${test1}<br>`;
+            area4.innerHTML += `${test2}<br>`;
+            area4.innerHTML += `${test3}<br>`;
+            area4.innerHTML += `${test4}<br>`;
+            area4.innerHTML += `${test5}<br>`;
+            area4.innerHTML += `${test6}<hr>`;
+
+            // 덧셈외에는 산술연산 가능 (산술연산이 들어오면 문자열을 자동형변환 시킴)
+            // 단 문자열에는 숫자만 존재해야 함
+            const test7 = '7'-5;
+            const test8 = '7'*3;
+            const test9 = '9'/3;
+            const test10 = '7' % 3;
+
+            area4.innerHTML += `${test7}<br>`;
+            area4.innerHTML += `${test8}<br>`;
+            area4.innerHTML += `${test9}<br>`;
+            area4.innerHTML += `${test10}<hr>`;
+
+            // 강제형변환
+            /*
+                1. Number(문자열)
+                2. parseInt(문자열)
+                3. parseFloat(문자열)
+            */
+            const test11 = 2+'3';
+            const test12 = 2+Number('3'); // 정수, 실수 모두 가능
+            const test13 = 2+parseInt('3'); // 정수로만 가능
+            const test14 = 2+parseFloat('3.1'); // 실수로만 가능
+
+            area4.innerHTML += `${test11}<br>`;
+            area4.innerHTML += `${test12}<br>`;
+            area4.innerHTML += `${test13}<br>`;
+            area4.innerHTML += `${test14}<hr>`;
+        }
+    </script>
+    <br>
+    <hr>
+    <br>
+    정수1: <input type="number" id="num1"><br>
+    정수2: <input type="number" id="num2"><br>
+    <div id="result">결과 없음</div>
+    <button onclick="plus()">덧셈</button>
+
+    <script>
+        function plus() {
+            const result = document.getElementById('result');
+
+            // input 요소의 value값은 String 타입
+            const sum = Number(document.getElementById('num1').value)
+                        +Number(document.getElementById('num2').value);
+
+            console.log(sum);
+            result.innerHTML = `${sum}<br>`;
+        }
+    </script>
+
+    <br><hr><br>
+    
+    <h3>* 실습문제</h3>
+    <p>사용자로부터 prompt로 입력을 받은 문자열 중 알파벳(소문자만)의 숫자 세기</p>
+    <button onclick="count();">실습문제</button>
+    <div id="ex"></div>
+    
+    <script>
+        function count() {
+            let input = prompt("대소문자 섞어서 알파벳을 입력하세요");
+
+            const ex = document.getElementById('ex');
+            
+            let count=0;
+            for(let i=0;i<input.length;i++){
+                if('a'<= input[i] && 'z' >= input[i]){
+                    count++;
+                }
+            }
+            ex.innerHTML = `${count}<br>`;
+        }
+    </script>
+</body>
+</html>

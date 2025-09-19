@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>읽고 싶은 장르</legend>
+        <table>
+            <tr>
+                <th rowspan="3"><input type="checkbox" id="all" name="all" onclick="checkAll()">Select All</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="book" id="소설" value="소설" onclick="check()">소설</td>
+                <td><input type="checkbox" name="book" id="에세이" value="에세이" onclick="check()">에세이</td>
+                <td><input type="checkbox" name="book" id="인문" value="인문" onclick="check()">인문</td>
+                <td><input type="checkbox" name="book" id="요리" value="요리" onclick="check()">요리</td>
+                <td><input type="checkbox" name="book" id="건강" value="건강" onclick="check()">건강</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="book" id="경제" value="경제" onclick="check()">경제</td>
+                <td><input type="checkbox" name="book" id="역사" value="역사" onclick="check()">역사</td>
+                <td><input type="checkbox" name="book" id="컴퓨터" value="컴퓨터" onclick="check()">컴퓨터</td>
+                <td><input type="checkbox" name="book" id="과학" value="과학" onclick="check()">과학</td>
+                <td><input type="checkbox" name="book" id="여행" value="여행" onclick="check()">여행</td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <script>
+        function checkAll() {
+            if(document.getElementById("all").checked==true){
+                for(var i=0;i<10;i++) document.getElementsByName("book")[i].checked=true;
+            } else{
+	            for(var i=0;i<10;i++) document.getElementsByName("book")[i].checked=false;
+	        }
+        }
+
+        function check() {
+            for(var i=0; i<10; i++){
+                if(document.getElementsByName("book")[i] != true){
+                    document.getElementById("all").checked = false;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
