@@ -113,7 +113,7 @@
     <script>
         $(()=> {
             $(':text').css('backgroundColor', 'yellow');
-            $(':button').css({width: '100px', height: '50px'});
+            // $(':button').css({width: '100px', height: '50px'});
             $(':checkbox').attr('checked', true);
 
             // 문제
@@ -172,7 +172,10 @@
             $(':checkbox').change(function() {
                 console.log('값 변경됨');
 
-                // .prop(): 요쇼의 checked 상태 반환, true or false
+                // .prop(): 현재 요소의 상태나 DOM속성을 읽거나 설정
+                //          체크박스, 라디오버튼 처럼 상태를 가지는 요소에 사용
+                //          상태: checked, disabled, selected, readonly, hieen 
+                //                true or false
                 console.log($(this).prop('checked'));
 
                 if($(this).prop('checked')){
@@ -183,5 +186,42 @@
             })
         })
     </script>
+
+    <h4>- selected 상태 선택자(select>option)</h4>
+    국적: 
+    <select name="national">
+        <option value="x">선택안함</option>
+        <option value="ko">한국</option>
+        <option value="us">미국</option>
+        <option value="eu">영국</option>
+    </select>
+
+    <button onclick="test1()">확인</button>
+    <br>
+    당신의 국적: <span id="result">선택안함</span>
+
+    <script>
+        function test1(){
+            // 현재 선택된 option요소 가져오기
+            console.log($('option:selected').val());
+            console.log($('option:selected').html());
+
+            $('#result').html($('option:selected').html());
+        }
+    </script>
+
+    <h4>- disabled, enabled 상태 선택자(input 요소들, button 등)</h4>
+    <button type="button">활성화 버튼</button>
+    <button type="button" disabled>비활성화 버튼</button>
+
+    <script>
+        $(() => {
+            $('button:enabled').css('backgroundColor','yellowgreen');
+            $('button:disabled').css('backgroundColor', 'orange');
+        })
+    </script>
+
+
+
 </body>
 </html>
