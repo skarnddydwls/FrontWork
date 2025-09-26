@@ -13,6 +13,7 @@
                 <th rowspan="3"><input type="checkbox" id="all" name="all" onclick="checkAll()">Select All</th>
             </tr>
             <tr>
+                <!-- name이 book이라는 NodeList가 만들어짐 (배열처럼 사용 가능) -->
                 <td><input type="checkbox" name="book" id="소설" value="소설" onclick="check()">소설</td>
                 <td><input type="checkbox" name="book" id="에세이" value="에세이" onclick="check()">에세이</td>
                 <td><input type="checkbox" name="book" id="인문" value="인문" onclick="check()">인문</td>
@@ -31,10 +32,19 @@
 
     <script>
         function checkAll() {
-            if(document.getElementById("all").checked==true){
-                for(var i=0;i<10;i++) document.getElementsByName("book")[i].checked=true;
+            const all = document.getElementById('all');
+            const book= document.getElementsByName('book');
+            const arrBook = Array.from(book);
+
+            const result = arrBook.every(function(n){
+                return n.checked;
+            });
+
+
+            if(all.checked==true){
+                for(var i=0;i<book.length;i++) book[i].checked=true;
             } else{
-	            for(var i=0;i<10;i++) document.getElementsByName("book")[i].checked=false;
+	            for(var i=0;i<book.length;i++) book[i].checked=false;
 	        }
         }
 
@@ -42,10 +52,12 @@
             for(var i=0; i<10; i++){
                 if(document.getElementsByName("book")[i] != true){
                     document.getElementById("all").checked = false;
+                } 
+                else if(document.getElementsByName('book')[i] == true){
+                    document.getElementById('all').checked = true;
                 }
             }
         }
-
     </script>
 </body>
 </html>

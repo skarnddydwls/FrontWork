@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 배열 및 Date</title>
+    <style>
+        .area{
+            border: 1px solid;
+            padding: 5px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h3>* 객체의 다량 데이터 관리</h3>
+
+    <div class="area" id="area1"></div>
+    <button onclick="test1()">확인</button>
+
+    <script>
+        function test1() {
+            const area1=document.getElementById('area1');
+
+            const student0 = {name: '남궁용진',java: 100,oracle: 98,html: 95,css:60}
+            const student1 = {name: '이용진',java: 98,oracle: 88,html: 55,css:40}
+            const student2 = {name: '김용진',java: 90,oracle: 78,html: 65,css:65}
+
+            // const students = [student0, student1, student2];
+
+            const students=[];
+            students.push(student0);
+            students.push(student1);
+            students.push(student2);
+
+            // area1.innerHTML += `${students[1].name}<br>`;
+
+            for(i in students){
+                // students[i].javascript = 100; // 모든 학생의 속성 추가
+                // 합계 속성 추가
+                // with(students[i]){
+                //     students[i].sum = java+oracle+html+css;
+                // }
+                // // 평균 속성 추가
+                // with(students[i]){
+                //     students[i].avg = sum/4;
+                // }
+
+                students[i].getSum = function(){
+                    return this.java + this.oracle + this.html + this.css;
+                }
+
+                students[i].getAvg = function() {
+                    return this.getSum() / 4;
+                }
+            }
+
+            for(i in students){
+                area1.innerHTML += `이름: ${students[i].name}, 
+                                    총점: ${students[i].getSum()}, 
+                                    평균: ${students[i].getAvg()}<br>`;
+            }
+
+        }
+    </script>
+    <hr>
+
+    <h3>* 생성자 함수</h3>
+    <p>
+        new 키워드를 통해 객체를 생성할 수 있는 함수를 의미(함수명 제시시 첫글자를 대문자)
+    </p>
+
+    <div class="area" id="area2"></div>
+    <button onclick="test2()">확인</button>
+
+    <script>
+        function test2() {
+            const area2= document.getElementById('area2');
+            const student0 = new Student('남궁용진',100,67,98,84,75);
+            const student1 = new Student('이용진',90,87,68,44,95);
+            const student2 = new Student('최용진',80,97,58,24,85);
+
+            const students = [student0, student1, student2];
+
+            for(i in students){
+                area2.innerHTML += `이름: ${students[i].name}, 
+                                    총점: ${students[i].getSum()}, 
+                                    평균: ${students[i].getAvg()}<br>`;
+            }
+            
+        }
+
+        function Student(name, java, oracle, html, css, javascript) {
+            // 일반 속성 정의
+            this.name = name;
+            this.java = java;
+            this.oracle=oracle;
+            this.html=html;
+            this.css=css;
+            this.javascript=javascript;
+
+            // 메소드 정의
+            this.getSum = function() {
+                return this.java+this.oracle+this.html+this.css+this.javascript;
+            }
+
+            this.getAvg = function() {
+                return this.getSum()/5; 
+            }
+        }
+    </script>
+    <hr>
+
+    <h3>* Date 내장 객체</h3>
+
+    <div class="area" id="area3"></div>
+    <button onclick="test3()">확인</button>
+
+    <script>
+        function test3() {
+            const area3 = document.getElementById('area3');
+
+            const date1 = new Date();
+            // 2025년 8월 4일로 세팅
+            const date2 = new Date(2025, 8-1, 4);
+
+            // +시간
+            const date3 = new Date(2025,8-1,4,15,0,0);
+
+            // +밀리세컨드 초 , 1000 == 1초
+            const date4 = new Date(2025,8-1,4,15,0,0,1000);
+
+            area3.innerHTML += `Date(): ${date1}<br>`;
+            area3.innerHTML += `Date(년,월,일): ${date2}<br>`;
+            area3.innerHTML += `Date(년,월,일,시,분,초): ${date3}<br>`;
+            area3.innerHTML += `Date(년,월,일,시,분,초,밀리세컨초): ${date4}<br>`;
+
+            area3.innerHTML += `년: ${date1.getFullYear()}<br>`;
+            area3.innerHTML += `월: ${date1.getMonth()+1}<br>`;
+            area3.innerHTML += `일: ${date1.getDate()}<br>`;
+
+            const endDate = new Date(2026,3-1,14);
+            const now = new Date();
+
+            // 밀리세컨드로 나옴
+            area3.innerHTML += `남은 일 수: ${endDate-now}<br>`; 
+
+            area3.innerHTML += `남은 일 수: ${Math.floor((endDate-now)/(1000*60*60*24))}<br>`; 
+        }
+    </script>
+</body>
+</html>
