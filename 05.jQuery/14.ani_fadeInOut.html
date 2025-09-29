@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>fadeIn_fadeOut</title>
+</head>
+<body>
+    <h3>* fadeIn(), fadeOut(), fadeToggle()</h3>
+    <p>
+        선택된 요소가 점점 투명해지면서 사라지고, 불투해지면서 나타나게 하는 메소드
+    </p>
+
+    <button id="fadeOut">숨기기</button>
+    <button id="fadeIn">보이기</button>
+    <button id="fadeToggle">토글</button>
+    <br><br>
+
+    <img id="img1" src="resources/img/mara.png">
+
+    <div id="content">
+        남궁용진
+    </div>
+
+    <script>
+        $('#fadeOut').click(function(){
+            $('#img1').fadeTo(2000, 0.2);
+            $('#content').fadeOut(2000);
+        })
+
+        $('#fadeIn').click(function(){
+            $('#img1').fadeTo(2000, 0.8);
+            $('#content').fadeIn(2000);
+        })
+
+        $('#fadeToggle').click(function(){
+            $('#img1').fadeToggle(2000);
+            $('#content').fadeToggle(2000);
+        })
+    </script>
+
+</body>
+</html>

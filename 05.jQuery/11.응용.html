@@ -55,7 +55,7 @@
         $(()=>{
             $('tr').click(function(){
                 $(this).children().each(function(i,el){
-                    $('#s'+(i)).html(el);
+                    $('#s' + i).text($(el).text());
                 })
             }) 
         })

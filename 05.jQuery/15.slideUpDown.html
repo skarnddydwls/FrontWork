@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        div {
+            background-color: beige;
+            border: 1px solid yellow;
+            border-radius: 10px;
+            width: 300px;
+            height: 35px;
+            line-height: 35px;
+            padding-left: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        p {
+            width: 300px;
+            height: 70px;
+            line-height: 35px;
+            padding: 10px 0px 0px 20px;
+            border: 1px solid lightblue;
+            border-radius: 10px;
+            display: none;
+        }
+    </style>
+    <title>slideUp_slideDown</title>
+</head>
+<body>
+    <div>Q. 질문 1입니다</div>
+    <p>A. 답변 1입니다</p>
+
+    <div>Q. 질문 2입니다</div>
+    <p>A. 답변 2입니다</p>
+
+    <div>Q. 질문 3입니다</div>
+    <p>A. 답변 3입니다</p>
+
+    <div>Q. 질문 4입니다</div>
+    <p>A. 답변 4입니다</p>
+
+    <script>
+        $('div').click(function (){
+            // $(this).next // 이벤트가 발생한 바로 뒤의 현제 1개만 선택
+
+            const p = $(this).next(); // 변수에 $를 붙이면 jQuery의 변수
+            if(p.css('display') == 'none') {
+                p.slideDown();
+            } else {
+                p.slideUp();
+            }
+        })
+    </script>
+</body>
+</html>

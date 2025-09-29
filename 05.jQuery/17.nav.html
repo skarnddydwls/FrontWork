@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+    <title>nav</title>
+    <style>
+        li {
+            list-style: none;
+            float:left;
+            width:200px;
+            height: 60px;
+        }
+        a {
+            text-decoration: none;
+            background-color: #fAF4C0;
+            color:black;
+            display: inline-block;
+            width: 200px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            font: bold 25px sans-serif;
+        }
+    </style>
+    <script>
+        $(()=>{
+            $('li a').hover(function(){
+                let bgColor = $(this).attr('data-bg');
+                $(this).stop().animate({backgroundColor: bgColor, color:'white'},1000);
+            }, function(){
+                $(this).stop().animate({backgroundColor: '#fAF4C0', color:'black'},1000);
+            });
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li><a href="#" data-bg="#86E57F">Home</a></li>
+        <li><a href="#" data-bg="#5CD1E5">About</a></li>
+        <li><a href="#" data-bg="#A6A6A6">Portfolio</a></li>
+        <li><a href="#" data-bg="#997000">Contact</a></li>
+    </ul>
+</body>
+</html>
