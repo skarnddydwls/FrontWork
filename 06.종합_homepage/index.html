@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOMEPAGE</title>
-    <link rel="stylesheet" href="css/hi.css">
+    <link rel="stylesheet" href="resources/css/hi.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
+  <script src="resources/js/homepage.js"></script>
     <header>
         <table>
             <tr>
@@ -53,16 +54,10 @@
       </header>
       <article id="content">
         <section id="imgslide">
-                <img src="resources/img/slide1.jpg" alt="여행사진1" id="1" width="800">
-                <img src="resources/img/slide2.jpg" alt="여행사진2" id="2" width="800">
-                <img src="resources/img/slide3.jpg" alt="여행사진3" id="3" width="800">
+                <img src="resources/img/slide1.jpg" alt="여행사진1">
+                <img src="resources/img/slide2.jpg" alt="여행사진2">
+                <img src="resources/img/slide3.jpg" alt="여행사진3">
         </section>
-        <script>
-            $(()=>{
-                $('#2').fadeOut(1);
-                $('#3').fadeOut(1);
-            })
-        </script>
         <section class="notice">
           <h2>공지사항</h2>
           <table class="table">
